@@ -1,9 +1,16 @@
 """A simple flask web app"""
+import logging
 import os
+
 from flask import Flask
 from app.cli import create_database
 from app.db import db
 from app.db.models import User
+from app.simple_pages import simple_pages
+
+from flask_bootstrap import Bootstrap5
+from flask_cors import CORS
+from flask_wtf.csrf import CSRFProtect
 
 
 def page_not_found(e):
