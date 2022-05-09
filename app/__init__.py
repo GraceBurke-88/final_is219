@@ -20,7 +20,6 @@ def create_app():
     """Create and configure an instance of the Flask application."""
     app = Flask(__name__)
     app.secret_key = 'This is an INSECURE secret!! DO NOT use this in production!!'
-
     app.register_error_handler(404, page_not_found)
     db_dir = "database/db.sqlite"
     app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///" + os.path.abspath(db_dir)
