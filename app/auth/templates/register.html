@@ -1,31 +1,93 @@
 {% extends "base.html" %}
 {% block content %}
 {% from 'bootstrap5/form.html' import render_form, render_field, render_form_row %}
-
 <div class="row">
   <div class="col-7">
     <h2>Register</h2>
     {{ render_form(form) }}
   </div>
   <div id="message" class="col-5">
-    <!--<div class="progress">
-        <div id="p-bar" class="progress-bar" style="width: 0%" role="progressbar" aria-valuenow="0"
-             aria-valuemin="0" aria-valuemax="100"></div>
-    </div>-->
-    <div id="lower" class="red">
-      Has lower case letter
-    </div>
-    <div id="upper">
-      Has uppercase letter
-    </div>
-    <div id="special">
-      Has special character
-    </div>
-    <div id="length">
-      Has at least 6 characters
-    </div>
+    <p> <b> Password must contain the following: </b> </p>
+    <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+    <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+    <p id="number" class="invalid">A <b>number</b></p>
 
+    <div class="progress">
+      <div id="p-bar" class="progress-bar" style="width: 0%" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
   </div>
+
 </div>
 
+<style>
+  .invalid {
+    color: red;
+  }
+
+  .valid {
+    color: green;
+  }
+</style>
+<script>
+  let passwordField = document.getElementById("password");
+  let letter = document.getElementById("letter");
+  let lowerCase = document.getElementById("lowerCase");
+  let capital = document.getElementById("capital");
+  var number = document.getElementById("number");
+  let upperCase = 0;
+  let num = 0;
+
+  passwordField.onfocus = function () {
+    var message = document.getElementById("message");
+
+  }
+  passwordField.onkeyup = function () {
+    let progress_bar = document.getElementById("p-bar");
+    // Validate lowercase letters
+    let lowerCaseLetters = /[a-z]/g;
+    var upperCaseLetters = /[A-Z]/g;
+    let numbers = /[0-9]/g;
+    let new_width_value;
+    let total = 0;
+
+    if (passwordField.value.match(lowerCaseLetters)) {
+      lowerCase = 1;
+      letter.classList.remove("invalid");
+      letter.classList.add("valid");
+    } else {
+      lowerCase = 0;
+      letter.classList.remove("valid");
+      letter.classList.add("invalid");
+    }
+    if (passwordField.value.match(upperCaseLetters)) {
+      upperCase = 1;
+      capital.classList.remove("invalid");
+      capital.classList.add("valid");
+    } else {
+      upperCase = 0;
+      capital.classList.remove("valid");
+      capital.classList.add("invalid");
+    }
+    if (passwordField.value.match(numbers)){
+      num = 1;
+      number.classList.remove("invalid");
+      number.classList.add("valid");
+    } else{
+      num = 0;
+      number.classList.remove("valid");
+      number.classList.add("invalid");
+    }
+
+    total = lowerCase + num + upperCase;
+    console.log("total is: " + total);
+
+    let p_bar_width_string = progress_bar.style.width;
+    let width_current_value = parseInt(p_bar_width_string.substring(0, p_bar_width_string.length - 1));
+    width_current_value = 34*total;
+    let width_string_new_value = width_current_value.toString();
+    new_width_value = width_string_new_value.concat("%");
+    progress_bar.style.width = new_width_value;
+  }
+
+</script>
 {% endblock %}
