@@ -3,11 +3,15 @@ import logging
 import os
 
 import flask_login
-from flask import Flask
+from flask import Flask,render_template
 from flask_bootstrap import Bootstrap5
 from flask_cors import CORS
 from flask_mail import Mail
 from flask_wtf.csrf import CSRFProtect
+
+
+import flask_login
+from app.auth import auth
 
 #from app.auth import auth
 from app.cli import create_database
@@ -45,7 +49,7 @@ def create_app():
     bootstrap = Bootstrap5(app)
     # these load functions with web interface
     app.register_blueprint(simple_pages)
-    #app.register_blueprint(auth)
+    app.register_blueprint(auth)
     app.register_blueprint(database)
     # these load functionality without a web interface
     #app.register_blueprint(log_con)
