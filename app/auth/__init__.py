@@ -45,3 +45,55 @@ def register():
             flash('Already Registered')
             return redirect(url_for('auth.login'), 302)
     return render_template('register.html', form=form)
+
+@auth.route('/login', methods=['POST', 'GET'])
+def login():
+    form = login_form()
+    if current_user.is_authenticated:
+        return redirect(url_for('auth.dashboard'))
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user is None or not user.check_password(form.password.data):
+            flash('Invalid username or password')
+            return redirect(url_for('auth.login'))
+        else:
+            user.authenticated = True
+            db.session.add(user)
+            db.session.commit()
+            login_user(user)
+            flash("Welcome", 'success')
+            return redirect(url_for('auth.dashboard'))
+    return render_template('login.html', form=form)
+
+@auth.route("/logout")
+@login_required
+def logout():
+    """Logout the current user."""
+    user = current_user
+    user.authenticated = False
+    db.session.add(user)
+    db.session.commit()
+    logout_user()
+    return redirect(url_for('auth.login'))
+
+
+@auth.route('/dashboard', methods=['GET'], defaults={"page": 1})
+@auth.route('/dashboard/<int:page>', methods=['GET'])
+@login_required
+def dashboard(page):
+    page = page
+    per_page = 1000
+    #pagination = Location.query.filter_by(users=current_user.id).paginate(page, per_page, error_out=False)
+    #pagination = Location.query.all(users=current_user.id).paginate(page, per_page, error_out=False)
+
+    #pagination = db.session.query(Location, User).filter(location_user.location_id == Location.id,
+            #                                   location_user.user_id == User.id).order_by(Location.location_id).all()
+
+    #pagination = User.query.join(location_user).filter(location_user.user_id == current_user.id).paginate()
+
+    data = current_user.locations
+
+    try:
+        return render_template('dashboard.html',data=data)
+    except TemplateNotFound:
+        abort(404)
