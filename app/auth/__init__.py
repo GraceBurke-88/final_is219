@@ -97,3 +97,15 @@ def dashboard(page):
         return render_template('dashboard.html',data=data)
     except TemplateNotFound:
         abort(404)
+
+@auth.route('/profile', methods=['POST', 'GET'])
+def edit_profile():
+    user = User.query.get(current_user.get_id())
+    form = profile_form(obj=user)
+    if form.validate_on_submit():
+        user.about = form.about.data
+        db.session.add(current_user)
+        db.session.commit()
+        flash('You Successfully Updated your Profile', 'success')
+        return redirect(url_for('auth.dashboard'))
+    return render_template('profile_edit.html', form=form)
