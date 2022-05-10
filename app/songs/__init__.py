@@ -52,3 +52,11 @@ def songs_upload():
         return render_template('upload.html', form=form)
     except TemplateNotFound:
         abort(404)
+
+@songs.route('/songs/uploads', methods=['GET'])
+def songs_display():
+    spotify_api_key = current_app.config.get('SPOTIFY_API_KEY')
+    try:
+        return render_template('display_songs.html',spotify_api_key=spotify_api_key)
+    except TemplateNotFound:
+        abort(404)
