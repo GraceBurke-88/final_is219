@@ -6,7 +6,7 @@ import flask_login
 from flask import Flask,render_template
 from flask_bootstrap import Bootstrap5
 from flask_cors import CORS
-from flask_mail import Mail
+#from flask_mail import Mail
 from flask_wtf.csrf import CSRFProtect
 
 
