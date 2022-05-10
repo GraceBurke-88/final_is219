@@ -2,7 +2,7 @@
 import logging
 import os
 
-import app.config
+#import app.config
 
 
 def test_development_config(application):
