@@ -3,11 +3,10 @@ import os
 
 from click.testing import CliRunner
 
-#from app import create_database
+from app import create_database
 
 runner = CliRunner()
 
-"""
 def test_create_database():
     response = runner.invoke(create_database)
     assert response.exit_code == 0
@@ -17,4 +16,4 @@ def test_create_database():
     # make a directory if it doesn't exist
     assert os.path.exists(dbdir) == True
 
-"""
+
