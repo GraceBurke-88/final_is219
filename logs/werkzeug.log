@@ -205,3 +205,20 @@
 2022-05-10 21:34:33,831 [INFO] werkzeug: 172.27.0.1 - - [10/May/2022 21:34:33] "GET /songs HTTP/1.1" 200 -
 2022-05-10 21:34:46,907 [INFO] werkzeug: 172.27.0.1 - - [10/May/2022 21:34:46] "GET /songs HTTP/1.1" 200 -
 2022-05-10 21:34:48,232 [INFO] werkzeug: 172.27.0.1 - - [10/May/2022 21:34:48] "GET /songs/uploads HTTP/1.1" 200 -
+2022-05-10 21:35:35,940 [INFO] werkzeug: 172.27.0.1 - - [10/May/2022 21:35:35] "GET /songs HTTP/1.1" 200 -
+2022-05-10 21:35:38,238 [INFO] werkzeug: 172.27.0.1 - - [10/May/2022 21:35:38] "GET /songs/uploads HTTP/1.1" 200 -
+2022-05-10 21:46:56,984 [INFO] werkzeug: 172.27.0.1 - - [10/May/2022 21:46:56] "GET / HTTP/1.1" 200 -
+2022-05-10 21:47:01,687 [INFO] werkzeug: 172.27.0.1 - - [10/May/2022 21:47:01] "[35m[1mGET /songs/uploads HTTP/1.1[0m" 500 -
+2022-05-10 21:47:01,781 [INFO] werkzeug: 172.27.0.1 - - [10/May/2022 21:47:01] "GET /songs/uploads?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2022-05-10 21:47:01,783 [INFO] werkzeug: 172.27.0.1 - - [10/May/2022 21:47:01] "GET /songs/uploads?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2022-05-10 21:47:01,836 [INFO] werkzeug: 172.27.0.1 - - [10/May/2022 21:47:01] "GET /songs/uploads?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2022-05-10 21:47:02,072 [INFO] werkzeug: 172.27.0.1 - - [10/May/2022 21:47:02] "[36mGET /songs/uploads?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2022-05-10 21:48:18,345 [INFO] werkzeug:  * Detected change in '/home/myuser/app/songs/__init__.py', reloading
+2022-05-10 21:48:29,557 [INFO] werkzeug: 172.27.0.1 - - [10/May/2022 21:48:29] "[35m[1mGET /songs/uploads HTTP/1.1[0m" 500 -
+2022-05-10 21:48:29,660 [INFO] werkzeug: 172.27.0.1 - - [10/May/2022 21:48:29] "[36mGET /songs/uploads?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2022-05-10 21:48:29,667 [INFO] werkzeug: 172.27.0.1 - - [10/May/2022 21:48:29] "[36mGET /songs/uploads?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2022-05-10 21:48:29,714 [INFO] werkzeug: 172.27.0.1 - - [10/May/2022 21:48:29] "[36mGET /songs/uploads?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2022-05-10 21:49:14,218 [INFO] werkzeug: 172.27.0.1 - - [10/May/2022 21:49:14] "[35m[1mGET /songs/uploads HTTP/1.1[0m" 500 -
+2022-05-10 21:49:14,252 [INFO] werkzeug: 172.27.0.1 - - [10/May/2022 21:49:14] "[36mGET /songs/uploads?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2022-05-10 21:49:14,256 [INFO] werkzeug: 172.27.0.1 - - [10/May/2022 21:49:14] "[36mGET /songs/uploads?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2022-05-10 21:49:14,285 [INFO] werkzeug: 172.27.0.1 - - [10/May/2022 21:49:14] "[36mGET /songs/uploads?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -

@@ -60,3 +60,12 @@ def songs_display():
         return render_template('display_songs.html',spotify_api_key=spotify_api_key)
     except TemplateNotFound:
         abort(404)
+
+@songs.route('/api/song/<int:song_id>')
+@login_required
+def retrieve_song(song_id):
+    spotify_api_key = current_app.config.get('SPOTIFY_API_KEY')
+    song = Song.query.get(song_id)
+    song_name = song.title.replace(" ", "%20")
+    song_artist = song.artist.replace(" ", "%20")
+    return render_template('song_view.html', song=song, song_id=song_id, song_name=song_name, song_artist=song_artist, spotify_api_key=spotify_api_key)
