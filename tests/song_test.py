@@ -16,7 +16,6 @@ def write_test_csv():
         writer.writerows(data)
 
 
-
 @pytest.fixture()
 def add_user_to_db():
     user = User('gnb5@gmail.com', '12345678', 0)

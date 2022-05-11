@@ -10,7 +10,7 @@
     <a href="{{ url_for("songs.songs_upload") }}" class="btn col-3 mb-5 btn-info" role="button">Upload Songs</a>
 
     <h2>Browse: Songs</h2>
-    {{ render_table(data) }}
+    {{ render_table(data, show_actions=True, table_classes='table-striped', header_classes='thead-dark', responsive=True, responsive_class='table-responsive-sm', model=Song, edit_url=edit_url) }}
     {% from 'bootstrap5/pagination.html' import render_pagination %}
 
     {{ render_pagination(pagination) }}
@@ -33,11 +33,13 @@
             }
         });
 
-        xhr.open("GET", "https://theaudiodb.p.rapidapi.com/discography.php?s=coldplay");
-        xhr.setRequestHeader("X-RapidAPI-Host", "theaudiodb.p.rapidapi.com");
-        xhr.setRequestHeader("X-RapidAPI-Key", "8c55cd5ec4msha52585d64324642p12f37fjsne5db3e973cea");
+        xhr.open("GET", "https://spotify23.p.rapidapi.com/search/?q=%3CREQUIRED%3E&type=multi&offset=0&limit=10&numberOfTopResults=5");
+        xhr.setRequestHeader("X-RapidAPI-Host", "spotify23.p.rapidapi.com");
+        xhr.setRequestHeader("X-RapidAPI-Key", "0282e11021mshd23162a5a19225dp13e505jsnd8fb048a31d1");
 
         xhr.send(data);
+
+
 
 
     </script>
