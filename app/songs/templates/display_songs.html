@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="stuff">
+
+</div>
+<script>
+    const info =null;
+    const data = null;
+    const xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === this.DONE) {
+            //console.log(this.responseText);
+            console.log(typeof this.responseText)
+            console.log(JSON.parse(this.responseText)["albums"])
+            let data = JSON.parse(this.responseText)["albums"]["items"]
+
+
+
+            let fat_string = "";
+            for (var x = 0; x< data.length; x++) {
+                console.log(data.length)
+                //document.getElementById("stuff").innerHTML += JSON.stringify(data[x]["data"]["coverArt"]["sources"][0]["url"])+"<br>"
+                // put img src -> JSON.stringify(data[x]["data"]["coverArt"]["sources"][0]["url"])
+                //<img src="JSON.stringify(data[x][\"data\"][\"coverArt\"][\"sources\"][0][\"url\"])\n ">;
+                var tmp_artist = JSON.stringify(data[x]["data"]["coverArt"]["sources"][0]["url"])
+                var tmp_img_url = JSON.stringify(data[x]["data"]["coverArt"]["sources"][0]["url"])
+                document.getElementById("stuff").innerHTML +=  "<img src='"+
+                    tmp_img_url.replaceAll('"','') + "'>"
+
+            }
+            //document.getElementById("stuff").innerHTML += JSON.stringify(data)
+        }
+    });
+    xhr.open("GET", "https://spotify23.p.rapidapi.com/search/?q=Taylor%20Swift&type=multi&offset=0&limit=10&numberOfTopResults=5");
+    xhr.setRequestHeader("X-RapidAPI-Host", "spotify23.p.rapidapi.com");
+    xhr.setRequestHeader("X-RapidAPI-Key", "5a9585ac6bmsh051467971939668p1e1d73jsn82b61b4aa34e");
+    xhr.send(data);
+
+
+</script>
+
+
+{% endblock %}
