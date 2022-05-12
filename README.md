@@ -12,7 +12,7 @@ dev: https://is219-gnb5-dev4.herokuapp.com
 
 
 ## Purpose
-This app was created to allow a user to register/login, after doing so they are able to upload a csv of their favorite songs. This list allows them to manage the songs with the ability to edit the songs. 
+This app was created to allow a user to register/login, after doing so they are able to upload a csv of their favorite songs. This list allows them to manage the songs with the ability to edit the songs. (songs csv is included as an example)
 
 The API would display the album covers for each artist on their list. As an API was not required, I have included a static example of how this would look if implemented.
 
