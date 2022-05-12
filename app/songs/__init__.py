@@ -21,6 +21,7 @@ def songs_browse(page):
     per_page = 1000
     pagination = Song.query.paginate(page, per_page, error_out=False)
     data = pagination.items
+
     edit_url = ('songs.edit_song', [('song_id' , ':id')])
     try:
         return render_template('browse_songs.html', record_type="Songs", Song=Song, data=data,pagination=pagination, edit_url=edit_url)

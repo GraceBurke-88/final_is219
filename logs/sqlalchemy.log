@@ -34995,3 +34995,23 @@ WHERE songs.title = ?
  LIMIT ? OFFSET ?
 2022-05-11 21:48:29,778 [INFO] sqlalchemy.engine.Engine: [cached since 0.001992s ago] ('New Song', 1, 0)
 2022-05-11 21:48:29,778 [INFO] sqlalchemy.engine.Engine: ROLLBACK
+2022-05-12 01:56:03,585 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-05-12 01:56:03,588 [INFO] sqlalchemy.engine.Engine: SELECT songs.id AS songs_id, songs.title AS songs_title, songs.artist AS songs_artist, songs.genre AS songs_genre, songs.year AS songs_year, songs.user_id AS songs_user_id 
+FROM songs
+ LIMIT ? OFFSET ?
+2022-05-12 01:56:03,590 [INFO] sqlalchemy.engine.Engine: [generated in 0.00156s] (1000, 0)
+2022-05-12 01:56:03,598 [INFO] sqlalchemy.engine.Engine: SELECT count(*) AS count_1 
+FROM (SELECT songs.id AS songs_id, songs.title AS songs_title, songs.artist AS songs_artist, songs.genre AS songs_genre, songs.year AS songs_year, songs.user_id AS songs_user_id 
+FROM songs) AS anon_1
+2022-05-12 01:56:03,600 [INFO] sqlalchemy.engine.Engine: [generated in 0.00174s] ()
+2022-05-12 01:56:03,796 [INFO] sqlalchemy.engine.Engine: ROLLBACK
+2022-05-12 01:56:30,389 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-05-12 01:56:30,392 [INFO] sqlalchemy.engine.Engine: SELECT songs.id AS songs_id, songs.title AS songs_title, songs.artist AS songs_artist, songs.genre AS songs_genre, songs.year AS songs_year, songs.user_id AS songs_user_id 
+FROM songs
+ LIMIT ? OFFSET ?
+2022-05-12 01:56:30,393 [INFO] sqlalchemy.engine.Engine: [cached since 26.81s ago] (1000, 0)
+2022-05-12 01:56:30,399 [INFO] sqlalchemy.engine.Engine: SELECT count(*) AS count_1 
+FROM (SELECT songs.id AS songs_id, songs.title AS songs_title, songs.artist AS songs_artist, songs.genre AS songs_genre, songs.year AS songs_year, songs.user_id AS songs_user_id 
+FROM songs) AS anon_1
+2022-05-12 01:56:30,401 [INFO] sqlalchemy.engine.Engine: [cached since 26.8s ago] ()
+2022-05-12 01:56:30,408 [INFO] sqlalchemy.engine.Engine: ROLLBACK
