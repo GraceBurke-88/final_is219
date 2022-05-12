@@ -6,8 +6,8 @@ def write_test_csv():
      # write a dummy csv file for testing
     header = ['Name', 'Artist', 'Year', 'Genre']
     data = [
-        ['Move (Keep Walkin’)', "TobyMac", '2015', 'Christian'],
-        ['Edge Of My Seat', "TobyMac", '2018', 'Christian'],
+        ['The Spins’)', "Mac Miller", '2010', 'Rap'],
+        ['This Love', "Maroon 5", '2002', 'Pop'],
     ]
 
     with open('music.csv', 'w', encoding='UTF8', newline='') as f:
