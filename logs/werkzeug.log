@@ -1040,3 +1040,7 @@
 2022-05-11 23:42:32,690 [INFO] werkzeug: 172.27.0.1 - - [11/May/2022 23:42:32] "GET /songs/uploads HTTP/1.1" 200 -
 2022-05-11 23:44:14,537 [INFO] werkzeug: 172.27.0.1 - - [11/May/2022 23:44:14] "GET /songs/uploads HTTP/1.1" 200 -
 2022-05-11 23:48:06,284 [INFO] werkzeug: 172.27.0.1 - - [11/May/2022 23:48:06] "GET /songs/uploads HTTP/1.1" 200 -
+2022-05-12 01:47:37,631 [INFO] werkzeug: 172.27.0.1 - - [12/May/2022 01:47:37] "GET / HTTP/1.1" 200 -
+2022-05-12 01:47:40,318 [INFO] werkzeug: 172.27.0.1 - - [12/May/2022 01:47:40] "GET /songs HTTP/1.1" 200 -
+2022-05-12 01:47:40,351 [INFO] werkzeug: 172.27.0.1 - - [12/May/2022 01:47:40] "GET /bootstrap/static/icons/bootstrap-icons.svg HTTP/1.1" 200 -
+2022-05-12 01:47:52,622 [INFO] werkzeug:  * Detected change in '/home/myuser/tests/song_test.py', reloading
